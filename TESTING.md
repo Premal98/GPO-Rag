@@ -12,25 +12,27 @@ report to process (about 15-25 minutes in the background).
 
 ## 0. One-time setup
 
-1. **Install the new packages** (Docling and the reranker are already installed in
-   `.venv` on this machine; this is only needed on a fresh setup):
+1. **Install the packages** (see [README](README.md#1-install) for details):
 
    ```powershell
-   .\.venv\Scripts\Activate.ps1
+   python -m venv .venv
+   .\.venv\Scripts\Activate.ps1        # macOS/Linux: source .venv/bin/activate
    pip install -r requirements.txt
    ```
 
-2. **Raise the upload limit in your `.env`** (it still says 25; large reports can
-   be bigger). Change `MAX_UPLOAD_MB=25` to:
+2. **Create your `.env`** from the template and fill in `GOOGLE_API_KEY` and
+   `SUPABASE_DATABASE_URL` (see [README](README.md#2-configure-env)):
 
-   ```ini
-   MAX_UPLOAD_MB=50
+   ```powershell
+   Copy-Item .env.example .env         # macOS/Linux: cp .env.example .env
    ```
 
-   All other new settings have working defaults (see `.env.example`).
+   All other settings have working defaults. `MAX_UPLOAD_MB=50` is enough for the
+   three reports.
 
-3. **Database:** nothing new. `sql/002` (already run) covers every step.
-   Check it is still fine:
+3. **Database:** in the Supabase SQL Editor, run `sql/001_create_document_chunks.sql`
+   and then `sql/002_documents_and_chunk_metadata.sql`
+   (see [README](README.md#3-set-up-supabase)). Then check the setup:
 
    ```powershell
    python -m scripts.check_database
@@ -42,7 +44,7 @@ report to process (about 15-25 minutes in the background).
    python -m pytest
    ```
 
-   Expect about 300 passed and a few skipped.
+   Expect about 320 passed and a few skipped.
 
 5. **Start the API:**
 
@@ -53,18 +55,20 @@ report to process (about 15-25 minutes in the background).
    Use it **without** `--reload` while testing: a reload restarts the server and
    stops any document that is being processed.
 
-   The first start loads the reranker model in the background (already
-   downloaded on this machine). The first Docling run also needs its models
-   (already downloaded too).
+   The first start downloads the reranker model (~1.1 GB) and loads it in the
+   background. The first Docling run also downloads its models (a few hundred MB).
+   Both happen only once.
 
 ---
 
-## 1. GPO report (`narrative`) - refresh it
+## 1. GPO report (`narrative`)
 
-The GPO report was ingested before the new chunk metadata existed. Refresh it once:
-
-- `POST /documents/{document_id}/ingest` with `document_id = 9e4f9e917d951597`
-  and `force = true`.
+1. `POST /documents`: choose the GPO annual report PDF, set `profile` to `narrative`.
+   You get `202` and a `document_id`. Document IDs are derived from the file's
+   contents, so the same PDF always gets `9e4f9e917d951597`; the examples below use
+   that ID. If yours differs, use your own.
+2. Poll `GET /documents/{document_id}` until `status` is `ready`. Narrative documents
+   use fast plain-text parsing, so this takes about a minute (mostly embedding).
 
 **Check:**
 
