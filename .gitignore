@@ -1,0 +1,23 @@
+# Secrets: .env and any variant (.env.local, .env.production, ...).
+# Only the placeholder template is committed.
+.env
+.env.*
+!.env.example
+
+# Uploaded files and their extracted text/chunks
+uploads/
+# Never commit PDFs from anywhere else either (tests generate their own)
+*.pdf
+
+# Virtual environment
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Tools and editors
+.pytest_cache/
+.vscode/
+.idea/

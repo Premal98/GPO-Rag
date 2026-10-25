@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the total carbon footprint of the iMac over its life cycle, in kg CO2e?",
+    "type": "table",
+    "expected_pages": []
+  },
+  {
+    "question": "Which life cycle phase contributes the most to the iMac's carbon emissions?",
+    "type": "chart",
+    "expected_pages": []
+  },
+  {
+    "question": "What share of the iMac's emissions comes from production versus customer use?",
+    "type": "chart",
+    "expected_pages": []
+  },
+  {
+    "question": "How much recycled content is used in the iMac, and in which parts?",
+    "type": "fact",
+    "expected_pages": []
+  },
+  {
+    "question": "What percentage of the iMac packaging is fiber-based?",
+    "type": "fact",
+    "expected_pages": []
+  },
+  {
+    "question": "How does the iMac's energy use compare with the ENERGY STAR requirement?",
+    "type": "table",
+    "expected_pages": []
+  },
+  {
+    "question": "Which baseline year or reference model are the emission reductions compared against?",
+    "type": "footnote",
+    "expected_pages": []
+  },
+  {
+    "question": "What assumptions does the report make about how long the iMac is used?",
+    "type": "footnote",
+    "expected_pages": []
+  },
+  {
+    "question": "Which substances or materials does Apple say the iMac is free of?",
+    "type": "fact",
+    "expected_pages": []
+  },
+  {
+    "question": "How is the electricity used to manufacture the iMac sourced?",
+    "type": "fact",
+    "expected_pages": []
+  }
+]

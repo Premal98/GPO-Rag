@@ -1,0 +1,37 @@
+# Tested with Python 3.13 and the versions noted below (October 2026).
+# Lower bounds are features this project relies on; upper bounds stop a
+# future major release from breaking it without warning.
+
+# Web API
+fastapi>=0.115,<1                  # tested 0.143.1
+uvicorn[standard]>=0.30,<1         # tested 0.54.0
+python-multipart>=0.0.18           # tested 0.0.32 (file uploads)
+pydantic>=2.7,<3                   # tested 2.14.1
+
+# Reads settings from the .env file
+python-dotenv>=1.0,<2              # tested 1.2.4
+
+# PDF text extraction
+pypdf>=5.0,<7                      # tested 6.20.1
+
+# Layout-aware PDF parsing (headings, tables, figures, footnotes, OCR) for
+# structured and visual documents. MIT licensed, runs locally on CPU; installs
+# torch and downloads its models from Hugging Face on first use.
+docling>=2.140,<3                  # tested 2.142.1 (heading_hierarchy_options)
+
+# Local reranker for search results (BAAI/bge-reranker-base, MIT). Uses the
+# torch installed with docling; downloads the model (~1.1 GB) on first use.
+sentence-transformers>=5,<6        # tested 5.7.0
+
+# PostgreSQL driver (Supabase). psycopg 3 is needed for prepare_threshold=None.
+psycopg[binary]>=3.2,<4            # tested 3.3.6
+
+# Gemini + LangChain building blocks
+langchain-core>=1.0,<2             # tested 1.6.10
+langchain-text-splitters>=1.0,<2   # tested 1.1.3
+langchain-google-genai>=4.0,<5     # tested 4.4.2 (timeout, response_schema)
+google-genai>=1.30,<3              # tested 2.31.0 (HttpOptions timeout)
+httpx>=0.27,<1                     # tested 0.28.1 (timeout detection)
+
+# Testing
+pytest>=8,<10                      # tested 9.1.1

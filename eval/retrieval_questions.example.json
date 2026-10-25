@@ -1,0 +1,22 @@
+[
+  {
+    "question": "What was GPO's total revenue in FY 2018?",
+    "expected_pages": [6],
+    "document_id": "9e4f9e917d951597"
+  },
+  {
+    "question": "How many depository libraries did GPO staff visit in FY 2018?",
+    "expected_pages": [5],
+    "document_id": "9e4f9e917d951597"
+  },
+  {
+    "question": "What website replaced FDsys?",
+    "expected_pages": [4],
+    "document_id": "9e4f9e917d951597"
+  },
+  {
+    "question": "How many titles did GPO catalog in FY 2018?",
+    "expected_pages": [5],
+    "document_id": "9e4f9e917d951597"
+  }
+]

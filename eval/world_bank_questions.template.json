@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the main message of the report?",
+    "type": "broad",
+    "expected_pages": []
+  },
+  {
+    "question": "What growth rate does the report project for the global economy?",
+    "type": "fact",
+    "expected_pages": []
+  },
+  {
+    "question": "What does chapter 1 conclude?",
+    "type": "section",
+    "expected_pages": []
+  },
+  {
+    "question": "What are the main risks to the outlook described in the report?",
+    "type": "broad",
+    "expected_pages": []
+  },
+  {
+    "question": "How is inflation expected to evolve, according to the report?",
+    "type": "fact",
+    "expected_pages": []
+  },
+  {
+    "question": "Which region is projected to grow fastest, and at what rate?",
+    "type": "table",
+    "expected_pages": []
+  },
+  {
+    "question": "What policy recommendations does the report make?",
+    "type": "broad",
+    "expected_pages": []
+  },
+  {
+    "question": "What does chapter 2 say about developing economies?",
+    "type": "section",
+    "expected_pages": []
+  },
+  {
+    "question": "What do the figures in the report show about trade growth?",
+    "type": "chart",
+    "expected_pages": []
+  },
+  {
+    "question": "How has the report's growth forecast changed since the previous edition?",
+    "type": "table",
+    "expected_pages": []
+  }
+]
